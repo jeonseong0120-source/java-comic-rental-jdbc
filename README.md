@@ -59,20 +59,18 @@ PR을 통해 팀원과 코드 내용을 공유하고 리뷰 후 병합합니다.
 ## 📁 프로젝트 구조 (Project Structure)
 ```text
 src/main/java/CLI/project/
-├─ Main.java                 ← 프로그램 시작 (App 실행)
-├─ App.java                  ← 전체 흐름 제어 및 라우팅
-├─ Rq.java                   ← 명령어 파싱 및 데이터 추출 유틸
+├─ Main.java                 ← 프로그램 진입점 (App 실행)
+├─ App.java                  ← 메인 루프 및 명령어 라우팅
+├─ Rq.java                   ← 커맨드 파싱 및 데이터 추출 유틸
 ├─ util/                     
 │  └─ DBUtil.java            ← JDBC 연결 및 자원 해제 전담
-├─ domain/                   ← 도메인별 데이터와 로직 분리
-│  ├─ comic/
-│  │  ├─ Comic.java          ← Comic DTO
-│  │  └─ ComicRepository.java ← Comic DB 처리
-│  ├─ member/
-│  │  ├─ Member.java         ← Member DTO
-│  │  └─ MemberRepository.java← Member DB 처리
-│  └─ rental/
-│     ├─ Rental.java         ← Rental DTO
-│     └─ RentalRepository.java ← Rental DB 처리 (핵심 로직)
-└─ resources/
-   └─ config.properties      ← DB 접속 정보 (아이디/비번)
+├─ domain/                   ← 순수 데이터 클래스 (DTO) 모음
+│  ├─ Comic.java            
+│  ├─ Member.java           
+│  └─ Rental.java           
+└─ repository/               ← 데이터베이스 처리 로직 모음 (따로 분리)
+   ├─ ComicRepository.java  
+   ├─ MemberRepository.java 
+   └─ RentalRepository.java
+└── resources/                
+    └── config.properties     (DB 접속 정보)
