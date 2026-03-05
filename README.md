@@ -55,7 +55,13 @@ PR을 통해 팀원과 코드 내용을 공유하고 리뷰 후 병합합니다.
 | **기타** | `exit` | 프로그램 종료 |
 
 ---
+## 📁 ERD
+<img width="2358" height="1034" alt="image" src="https://github.com/user-attachments/assets/b6d1fa54-bffa-4aa2-a53b-6245a7e8eec1" />
 
+
+
+
+---
 ## 📁 프로젝트 구조 (Project Structure)
 ```text
 src/
@@ -65,3 +71,5 @@ src/
 ├─ DBUtil.java               ← JDBC 연결/자원반납 유틸
 ├─ dto/                      ← 데이터 클래스 (Comic, Member, Rental)
 └─ repository/               ← DB 처리 클래스 (ComicRepository 등)
+
+
