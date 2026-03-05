@@ -36,6 +36,13 @@ PR을 통해 팀원과 코드 내용을 공유하고 리뷰 후 병합합니다.
 2. **자원 관리**: 
 3. **트랜잭션**: 
 
+### ⚙️ 설정 가이드 (Setup)
+JDK 17: 프로젝트는 Java 17을 기준으로 빌드됩니다. 반드시 버전을 맞춰주세요.
+
+Database: src/main/resources/config.properties 파일에 본인의 MySQL 접속 정보를 설정하세요.
+
+Gradle: 프로젝트를 연 후 build.gradle의 변경사항을 반드시 Reload 하세요.
+
 ---
 
 ## 📋 주요 기능 및 명령어
@@ -64,12 +71,19 @@ PR을 통해 팀원과 코드 내용을 공유하고 리뷰 후 병합합니다.
 ---
 ## 📁 프로젝트 구조 (Project Structure)
 ```text
-src/
-├─ Main.java                 ← 진입점
-├─ App.java                  ← 명령어 처리 및 실행 루프
-├─ Rq.java                   ← 커맨드 파싱 유틸
-├─ DBUtil.java               ← JDBC 연결/자원반납 유틸
-├─ dto/                      ← 데이터 클래스 (Comic, Member, Rental)
-└─ repository/               ← DB 처리 클래스 (ComicRepository 등)
-
-
+src/main/java/CLI/project/
+├─ Main.java                 ← 프로그램 진입점 (App 실행)
+├─ App.java                  ← 메인 루프 및 명령어 라우팅
+├─ Rq.java                   ← 커맨드 파싱 및 데이터 추출 유틸
+├─ util/                     
+│  └─ DBUtil.java            ← JDBC 연결 및 자원 해제 전담
+├─ domain/                   ← 순수 데이터 클래스 (DTO) 모음
+│  ├─ Comic.java            
+│  ├─ Member.java           
+│  └─ Rental.java           
+└─ repository/               ← 데이터베이스 처리 로직 모음 (따로 분리)
+   ├─ ComicRepository.java  
+   ├─ MemberRepository.java 
+   └─ RentalRepository.java
+└── resources/                
+    └── config.properties     (DB 접속 정보)
