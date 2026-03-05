@@ -62,7 +62,13 @@ Gradle: 프로젝트를 연 후 build.gradle의 변경사항을 반드시 Reload
 | **기타** | `exit` | 프로그램 종료 |
 
 ---
+## 📁 ERD
+<img width="2358" height="1034" alt="image" src="https://github.com/user-attachments/assets/b6d1fa54-bffa-4aa2-a53b-6245a7e8eec1" />
 
+
+
+
+---
 ## 📁 프로젝트 구조 (Project Structure)
 ```text
 src/main/java/CLI/project/
