@@ -27,13 +27,13 @@ public class App {
                 System.out.println("프로그램을 종료합니다.");
                 break;
             }
+
             handleCommand(command);
         }
     }
 
     private void handleCommand(String commandInput) {
         Rq rq = new Rq(commandInput);
-
         switch (rq.getCommand()) {
             case "comic-add":
                 addComic();
@@ -79,7 +79,6 @@ public class App {
             conn = DBUtil.getConnection();
             conn.setAutoCommit(false); // 트랜잭션 시작
 
-            // TODO: rentalRepo.isRented 가 미구현 상태라면 추후 삭제 또는 구현 필요
             if (rentalRepo.isRented(comicId)) {
                 System.out.println("이미 대여 중인 만화입니다.");
                 return;
