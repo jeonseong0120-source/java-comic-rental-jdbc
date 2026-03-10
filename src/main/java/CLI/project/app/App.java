@@ -85,13 +85,17 @@ public class App {
         }
     }
 
-    // ========== 만화책 관련 기능 (내 담당) ==========
+    // #5 만화책 관련 기능
 
     private void addComic() {
         System.out.println("== 만화책 등록 ==");
 
         System.out.print("제목: ");
         String title = scanner.nextLine().trim();
+        if (title.equals("cancel")) {
+            System.out.println("취소되었습니다.");
+            return;
+        }
         if (title.isEmpty()) {
             System.out.println("제목을 입력해주세요.");
             return;
@@ -99,6 +103,10 @@ public class App {
 
         System.out.print("권수: ");
         String volumeStr = scanner.nextLine().trim();
+        if (volumeStr.equals("cancel")) {
+            System.out.println("취소되었습니다.");
+            return;
+        }
         int volume;
         try {
             volume = Integer.parseInt(volumeStr);
@@ -109,6 +117,10 @@ public class App {
 
         System.out.print("작가: ");
         String author = scanner.nextLine().trim();
+        if (author.equals("cancel")) {
+            System.out.println("취소되었습니다.");
+            return;
+        }
         if (author.isEmpty()) {
             System.out.println("작가를 입력해주세요.");
             return;
@@ -197,12 +209,20 @@ public class App {
 
         System.out.print("새 제목(현재: " + comic.getTitle() + "): ");
         String title = scanner.nextLine().trim();
+        if (title.equals("cancel")) {
+            System.out.println("취소되었습니다.");
+            return;
+        }
         if (title.isEmpty()) {
             title = comic.getTitle();
         }
 
         System.out.print("새 권수(현재: " + comic.getVolume() + "): ");
         String volumeStr = scanner.nextLine().trim();
+        if (volumeStr.equals("cancel")) {
+            System.out.println("취소되었습니다.");
+            return;
+        }
         int volume;
         if (volumeStr.isEmpty()) {
             volume = comic.getVolume();
@@ -217,6 +237,10 @@ public class App {
 
         System.out.print("새 작가(현재: " + comic.getAuthor() + "): ");
         String author = scanner.nextLine().trim();
+        if (author.equals("cancel")) {
+            System.out.println("취소되었습니다.");
+            return;
+        }
         if (author.isEmpty()) {
             author = comic.getAuthor();
         }
