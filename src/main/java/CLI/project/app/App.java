@@ -57,12 +57,18 @@ public class App {
             case "return":
                 returnComic(rq);
                 break;
+            // handleCommand 메서드 내부 수정
             case "list-rentals":
                 listRentals(rq);
                 break;
-            case "member-add" -> addMember();
 
-            case "member-list" -> memberRepo.listMembers();
+            case "member-add":
+                addMember();
+                break;
+
+            case "member-list":
+                memberRepo.listMembers();
+                break;
 
             default:
                 System.out.println("존재하지 않는 명령어입니다.");
