@@ -1,6 +1,7 @@
 package CLI.project.app;
 
 import CLI.project.domain.Comic;
+import CLI.project.domain.Member;
 import CLI.project.repository.ComicRepository;
 import CLI.project.repository.MemberRepository;
 import CLI.project.repository.RentalRepository;
@@ -59,6 +60,10 @@ public class App {
             case "list-rentals":
                 listRentals(rq);
                 break;
+            case "member-add" -> addMember();
+
+            case "member-list" -> memberRepo.listMembers();
+
             default:
                 System.out.println("존재하지 않는 명령어입니다.");
                 break;
@@ -323,5 +328,18 @@ public class App {
 
         comicRepo.deleteComic(id);
         System.out.println(id + "번 만화책이 삭제되었습니다.");
+     }
+      private void addMember() {
+        System.out.print("이름: ");
+        String name = scanner.nextLine().trim();
+
+        System.out.print("전화번호: ");
+        String phone = scanner.nextLine().trim();
+
+        // 입력값으로 Member 객체 생성
+        Member member = new Member(name, phone);
+
+        // Repository에 전달해서 DB 저장
+        memberRepo.addMember(member);
     }
 }
