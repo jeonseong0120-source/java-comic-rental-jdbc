@@ -44,15 +44,24 @@ public class RentalRepository {
     }
 
     public Rental getById(int id) {
-        String sql = "SELECT * FROM rental WHERE id = ?";
-        try (PreparedStatement pstmt = DBUtil.getConnection().prepareStatement(sql)) {
-
+        String sql = "SELECT r.*, c.title AS comicTitle, m.name AS memberName " +
+                    "FROM rental r " +
+                    "JOIN comic c ON r.comic_id = c.id " +
+                    "JOIN member m ON r.member_id = m.id " +
+                    "WHERE r.id = ?";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+            conn = DBUtil.getConnection();
+            pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, id);
-            ResultSet rs = pstmt.executeQuery();
+            rs = pstmt.executeQuery();
             if (rs.next()) return mapToRental(rs);
-
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            DBUtil.close(rs, pstmt, conn);
         }
         return null;
     }
