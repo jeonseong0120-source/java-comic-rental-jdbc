@@ -1,17 +1,18 @@
 package CLI.project.app;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Scanner;
+
 import CLI.project.domain.Comic;
 import CLI.project.domain.Member;
+import CLI.project.domain.Rental;
 import CLI.project.repository.ComicRepository;
 import CLI.project.repository.MemberRepository;
 import CLI.project.repository.RentalRepository;
 import CLI.project.util.DBUtil;
 import CLI.project.util.Rq;
-
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Scanner;
 
 public class App {
     private final Scanner scanner = new Scanner(System.in);
@@ -121,13 +122,24 @@ public class App {
 
         Connection conn = null;
         try {
+            // 대여 정보 먼저 조회 (트랜잭션 밖에서)
+            Rental rental = rentalRepo.getById(rentalId);
+
+            if (rental == null) {
+                System.out.println(rentalId + "번 대여 내역이 존재하지 않습니다.");
+                return;
+            }
+
+            if (rental.getReturnDate() != null) {
+                System.out.println("이미 반납된 대여 건입니다. (반납일: " + rental.getReturnDate() + ")");
+                return;
+            }
+
             conn = DBUtil.getConnection();
             conn.setAutoCommit(false);
 
-            int comicId = rentalRepo.getById(rentalId).getComicId();
             rentalRepo.returnComic(conn, rentalId);
-
-            comicRepo.updateRentalStatus(conn, comicId, false);
+            comicRepo.updateRentalStatus(conn, rental.getComicId(), false);
 
             conn.commit();
             System.out.println("반납이 완료되었습니다.");
