@@ -58,7 +58,7 @@ Gradle: 프로젝트를 연 후 build.gradle의 변경사항을 반드시 Reload
 | | `member-list` | 회원 목록 조회 |
 | **대여/반납** | `rent [cId] [mId]` | 만화책 대여 (중복 대여 불가) |
 | | `return [rId]` | 만화책 반납 처리 |
-| | `rental-list` | 대여 내역 출력 |
+| | `list-rentals` | 대여 내역 출력 |
 | **기타** | `exit` | 프로그램 종료 |
 
 ---
