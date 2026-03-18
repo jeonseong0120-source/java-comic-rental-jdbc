@@ -69,7 +69,9 @@ Gradle: 프로젝트를 연 후 build.gradle의 변경사항을 반드시 Reload
 
 ### comic
 <img width="466" height="155" alt="Image" src="https://github.com/user-attachments/assets/17300ec9-e7f9-44a8-bfd9-5efed747949a" />
+
 <img width="468" height="115" alt="Image" src="https://github.com/user-attachments/assets/335be06a-0551-4472-affc-7bab27c0c8aa" />
+
 <img width="479" height="186" alt="Image" src="https://github.com/user-attachments/assets/39efb932-c6f9-4693-a162-39099a7523b6" />
 
 ### rent
