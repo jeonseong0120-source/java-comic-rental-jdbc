@@ -62,6 +62,22 @@ Gradle: 프로젝트를 연 후 build.gradle의 변경사항을 반드시 Reload
 | **기타** | `exit` | 프로그램 종료 |
 
 ---
+## 📁 명령어 구현 확인
+
+### member 
+<img width="338" height="200" alt="Image" src="https://github.com/user-attachments/assets/22b06593-3264-46e1-944e-8613aead75a1" />
+
+### comic
+<img width="466" height="155" alt="Image" src="https://github.com/user-attachments/assets/17300ec9-e7f9-44a8-bfd9-5efed747949a" />
+
+<img width="468" height="115" alt="Image" src="https://github.com/user-attachments/assets/335be06a-0551-4472-affc-7bab27c0c8aa" />
+
+<img width="479" height="186" alt="Image" src="https://github.com/user-attachments/assets/39efb932-c6f9-4693-a162-39099a7523b6" />
+
+### rent
+<img width="568" height="226" alt="Image" src="https://github.com/user-attachments/assets/948d254c-3c45-403a-9089-77df7357d4a0" />
+
+---
 ## 📁 ERD
 <img width="2358" height="1034" alt="image" src="https://github.com/user-attachments/assets/b6d1fa54-bffa-4aa2-a53b-6245a7e8eec1" />
 
